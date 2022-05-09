@@ -5,13 +5,14 @@ public class GameManager : MonoBehaviour
 {
     public bool gameOver = false;
 
-    public float restartDelay = 2f;
+    public float restartDelay = 0f;
 
-    public GameObject completeLevelUI;
+    // public GameObject completeLevelUI;
 
     public void CompleteLevel()
     {
-        completeLevelUI.SetActive(true);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        // completeLevelUI.SetActive(true);
     }
 
     public void EndGame()
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour
         {
             gameOver = true;
             Debug.Log("GAME OVER");
+            // Restart();
             Invoke("Restart", restartDelay);
         }
 
@@ -30,9 +32,9 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    void FixedUpdate()
+    void Update()
     {
-        if (Input.GetKey("r"))
+        if (Input.GetKeyDown(KeyCode.R))
             Restart();
     }
 
