@@ -50,21 +50,21 @@ public class PlayerMovement : MonoBehaviour
             // velocity.x = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
             // Input.Get("Vertical");
 
-            if (Input.GetKey(KeyCode.S))
-                if (velocity != -velocity)
-                {
-                    velocity = new Vector3(0, 0, 0);
-                }
+            // if (Input.GetKey(KeyCode.S))
+            //     if (velocity != -velocity)
+            //     {
+            //         velocity = new Vector3(0, 0, 0);
+            //     }
             transform.position += (velocity + new Vector3(0, 0, forwardSpeed))* Time.deltaTime;
             if (!Input.anyKey){
                 velocity *= friction;
             }
-            if (transform.position.y + 5f < platform.position.y)
-            {
-                gameManager.EndGame();
-                // transform.position = new Vector3(0, platform.position.y + .5f, 0);
-                // velocity = new Vector3(0, 0, 0);
-            }
+            // if (transform.position.y + 5f < platform.position.y)
+            // {
+            //     gameManager.EndGame();
+            //     // transform.position = new Vector3(0, platform.position.y + .5f, 0);
+            //     // velocity = new Vector3(0, 0, 0);
+            // }
         }
     }
 }
